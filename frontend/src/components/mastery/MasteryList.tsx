@@ -20,16 +20,9 @@ const MasteryList = ({ onDelete, masteries  }) => {
         <tr>
         <th onClick={() => handleSort("mastery_name")}>Name</th>
         <th >Description</th>
-        <th >Tags</th>
         <th >Attribute</th>
         <th >Character</th>
         <th >Traits</th>
-        <th onClick={() => handleSort("damage")}>Damage</th>
-        <th onClick={() => handleSort("damage_type")}>Damage Type</th>
-        <th onClick={() => handleSort("range")}>Range</th>
-        <th onClick={() => handleSort("duration")}>Duration</th>
-        <th onClick={() => handleSort("action_type")}>Action Type</th>
-        <th onClick={() => handleSort("action_cost")}>Action Cost</th>
         </tr>
       </thead>
       <tbody>
@@ -37,7 +30,6 @@ const MasteryList = ({ onDelete, masteries  }) => {
           <tr key={mastery.mastery_id}>
             <td>{mastery.mastery_name}</td>
             <td>{mastery.description}</td>
-            <td>{mastery.tags.join(", ")}</td>
             <td>{mastery.attribute.join(", ")}</td>
             <td>{mastery.character_choice.join(", ")}</td>
             <td>{mastery.trait.join(", ")}</td>

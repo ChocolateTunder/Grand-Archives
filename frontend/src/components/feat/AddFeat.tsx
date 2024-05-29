@@ -5,7 +5,6 @@ const AddFeat = ({ onNewFeat }) => {
     const [featData, setFeatData] = useState({
         feat_name: "",
         description: "",
-        tags: "",
         attribute: "",
         character_choice: "",
         trait: "",
@@ -21,7 +20,6 @@ const AddFeat = ({ onNewFeat }) => {
         const updatedFeatData = {
             feat_name: formData.get("feat_name"),
             description: formData.get("description"),
-            tags: formData.get("tags").split(',').map(tag => tag.trim()),
             attribute: formData.get("attribute").split(',').map(attr => attr.trim()),
             character_choice: formData.get("character_choice").split(',').map(choice => choice.trim()),
             trait: formData.get("trait").split(',').map(trait => trait.trim()),
@@ -56,7 +54,6 @@ const AddFeat = ({ onNewFeat }) => {
                 <div className="rowNbutton">
                     <div className="input-row">
                         <input type="text" placeholder="Feat Name" name="feat_name" required />
-                        <input type="text" placeholder="Tags" name="tags" required />
                         <input type="text" placeholder="Attribute Requirement" name="attribute" required />
                         <input type="text" placeholder="Discipline/Affinity/Calling" name="character_choice" required />
                         <input type="text" placeholder="Trait Requirement" name="trait" required />

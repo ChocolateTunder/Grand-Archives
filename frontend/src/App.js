@@ -11,11 +11,10 @@ import Mastery from "./pages/mastery.tsx";
   - Add routing to other pages
   - Add search
   - Add edit
-  - Add Powers
-  - Add Masteries
-  - Add Feats
   - Add character fucntionality
-  - Add DB password to env file
+  - See "skill tree" of related abilities and feats (eg. all arcane projectile abilities and related masteries/feats)
+  - Roll skills and abilities, show damage
+  - Resource management. HP/ Spellcasting Points/ Focus Points/etc
 */
 
 const App = () => {

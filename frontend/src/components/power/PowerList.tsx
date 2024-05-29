@@ -30,6 +30,7 @@ const PowerList = ({ onDelete, powers  }) => {
         <th onClick={() => handleSort("duration")}>Duration</th>
         <th onClick={() => handleSort("action_type")}>Action Type</th>
         <th onClick={() => handleSort("action_cost")}>Action Cost</th>
+        <th onClick={() => handleSort("focus_cost")}>Focus Cost</th>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +48,7 @@ const PowerList = ({ onDelete, powers  }) => {
             <td>{power.duration}</td>
             <td>{power.action_type}</td>
             <td>{power.action_cost}</td>
+            <td>{power.focus_cost}</td>
             <td>
               {/* <button onClick={() => onEdit(power)}>Edit</button> */}
               <button onClick={() => onDelete(power.power_id)}>Delete</button>

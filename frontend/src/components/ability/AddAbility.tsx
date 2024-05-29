@@ -67,17 +67,17 @@ const AddAbility = ({ onNewAbility }) => {
             <form id="abilityForm" className="form" onSubmit={handleSubmit}>
                 <div className="rowNbutton">
                     <div className="input-row">
-                        <input type="text" placeholder="Ability Name" name="ability_name" required />
+                        <input type="text" placeholder="Ability Name" name="ability_name" required autoComplete="off" />
                         <input type="text" placeholder="Tags" name="tags" required />
-                        <input type="text" placeholder="Attribute Requirement" name="attribute" required />
-                        <input type="text" placeholder="Discipline/Affinity/Calling" name="character_choice" required />
-                        <input type="text" placeholder="Trait Requirement" name="trait" required />
-                        <input type="text" placeholder="Damage" name="damage" required />
-                        <input type="text" placeholder="Damage Type" name="damage_type" required />
-                        <input type="text" placeholder="Range/AoE" name="range" required />
-                        <input type="text" placeholder="Duration" name="duration" required />
-                        <input type="text" placeholder="Type of Action" name="action_type" required />
-                        <input type="number" placeholder="Action Point Cost" name="action_cost" required />
+                        <input type="text" placeholder="Attribute Requirement" name="attribute" required autoComplete="off" />
+                        <input type="text" placeholder="Discipline/Affinity/Calling" name="character_choice" required autoComplete="off" />
+                        <input type="text" placeholder="Trait Requirement" name="trait" required autoComplete="off" />
+                        <input type="text" placeholder="Damage" name="damage" required autoComplete="off" />
+                        <input type="text" placeholder="Damage Type" name="damage_type" required autoComplete="off" />
+                        <input type="text" placeholder="Range/AoE" name="range" required autoComplete="off" />
+                        <input type="text" placeholder="Duration" name="duration" required autoComplete="off" />
+                        <input type="text" placeholder="Type of Action" name="action_type" required autoComplete="off" />
+                        <input type="number" placeholder="Action Point Cost" name="action_cost" required autoComplete="off" />
                     </div>
                     <button className="button" type="submit">Submit</button>
                 </div>

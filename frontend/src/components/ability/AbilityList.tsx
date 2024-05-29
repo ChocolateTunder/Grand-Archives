@@ -23,7 +23,7 @@ const AbilityList = ({ onDelete, abilities  }) => {
     //     } else {
     //         return sortOrder === "asc" ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
     //     }
-    // });
+    // }); 
 
   return (
     <table className="ability-table">

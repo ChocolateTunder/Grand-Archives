@@ -5,9 +5,9 @@ const AddTrait = ({ onNewTrait }) => {
     const [traitData, setTraitData] = useState({
         trait_name: "",
         description: "",
-        tags: "",
-        attribute: "",
+        ancestry: "",
         character_choice: "",
+        story: "",
         trait_id: ""
     });
 
@@ -20,9 +20,9 @@ const AddTrait = ({ onNewTrait }) => {
         const updatedTraitData = {
             trait_name: formData.get("trait_name"),
             description: formData.get("description"),
-            tags: formData.get("tags").split(',').map(tag => tag.trim()),
-            attribute: formData.get("attribute").split(',').map(attr => attr.trim()),
+            ancestry: formData.get("ancestry").split(',').map(heritage => heritage.trim()),
             character_choice: formData.get("character_choice").split(',').map(choice => choice.trim()),
+            story: formData.get("story").split(',').map(background => background.trim()),
             trait_id: formData.get("trait_name")?.toString().toLowerCase().replace(/\s/g, '')
         };
         setTraitData(updatedTraitData);
@@ -54,9 +54,9 @@ const AddTrait = ({ onNewTrait }) => {
                 <div className="rowNbutton">
                     <div className="input-row">
                         <input type="text" placeholder="Trait Name" name="trait_name" required />
-                        <input type="text" placeholder="Tags" name="tags" required />
-                        <input type="text" placeholder="Attribute Requirement" name="attribute" required />
+                        <input type="text" placeholder="Ancestries" name="Ancestries" required />
                         <input type="text" placeholder="Discipline/Affinity/Calling" name="character_choice" required />
+                        <input type="text" placeholder="Story" name="Story" required />
                     </div>
                     <button className="button" type="submit">Submit</button>
                 </div>

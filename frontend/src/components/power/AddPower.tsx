@@ -15,6 +15,7 @@ const AddPower = ({ onNewPower }) => {
         duration: "",
         action_type: "",
         action_cost: 0,
+        focus_cost: 0,
         power_id: ""
     });
 
@@ -37,6 +38,7 @@ const AddPower = ({ onNewPower }) => {
             duration: formData.get("duration"),
             action_type: formData.get("action_type"),
             action_cost: parseInt(formData.get("action_cost"), 10),
+            focus_cost: parseInt(formData.get("focus_cost"), 10),
             power_id: formData.get("power_name")?.toString().toLowerCase().replace(/\s/g, '')
         };
         setPowerData(updatedPowerData);
@@ -77,6 +79,7 @@ const AddPower = ({ onNewPower }) => {
                         <input type="text" placeholder="Duration" name="duration" required />
                         <input type="text" placeholder="Type of Action" name="action_type" required />
                         <input type="number" placeholder="Action Point Cost" name="action_cost" required />
+                        <input type="number" placeholder="Focus Point Cost" name="focus_cost" required />
                     </div>
                     <button className="button" type="submit">Submit</button>
                 </div>

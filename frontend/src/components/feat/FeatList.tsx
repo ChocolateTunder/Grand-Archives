@@ -20,7 +20,6 @@ const FeatList = ({ onDelete, feats  }) => {
         <tr>
         <th onClick={() => handleSort("feat_name")}>Name</th>
         <th >Description</th>
-        <th >Tags</th>
         <th >Attribute</th>
         <th >Character</th>
         <th >Traits</th>
@@ -31,7 +30,6 @@ const FeatList = ({ onDelete, feats  }) => {
           <tr key={feat.feat_id}>
             <td>{feat.feat_name}</td>
             <td>{feat.description}</td>
-            <td>{feat.tags.join(", ")}</td>
             <td>{feat.attribute.join(", ")}</td>
             <td>{feat.character_choice.join(", ")}</td>
             <td>{feat.trait.join(", ")}</td>

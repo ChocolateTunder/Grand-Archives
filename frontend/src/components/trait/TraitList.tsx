@@ -20,9 +20,9 @@ const TraitList = ({ onDelete, traits  }) => {
         <tr>
         <th onClick={() => handleSort("trait_name")}>Name</th>
         <th >Description</th>
-        <th >Tags</th>
-        <th >Attribute</th>
+        <th >Ancestry</th>
         <th >Character</th>
+        <th >Story</th>
         </tr>
       </thead>
       <tbody>
@@ -30,9 +30,9 @@ const TraitList = ({ onDelete, traits  }) => {
           <tr key={trait.trait_id}>
             <td>{trait.trait_name}</td>
             <td>{trait.description}</td>
-            <td>{trait.tags.join(", ")}</td>
-            <td>{trait.attribute.join(", ")}</td>
+            <td>{trait.ancestry.join(", ")}</td>
             <td>{trait.character_choice.join(", ")}</td>
+            <td>{trait.story.join(", ")}</td>
             <td>
               {/* <button onClick={() => onEdit(trait)}>Edit</button> */}
               <button onClick={() => onDelete(trait.trait_id)}>Delete</button>
