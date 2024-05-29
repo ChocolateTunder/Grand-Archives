@@ -30,40 +30,40 @@
 .table tbody tr:last-of-type {
     border-bottom: 2px solid #6173c4;
 } */
-/* AbilityList.css */
+/* featList.css */
 
-.ability-table {
+.feat-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
   }
   
-  .ability-table th,
-  .ability-table td {
+  .feat-table th,
+  .feat-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
   }
   
-  .ability-table th {
+  .feat-table th {
     background-color: #f2f2f2;
     font-weight: bold;
   }
   
-  .ability-table tr:nth-child(even) {
+  .feat-table tr:nth-child(even) {
     background-color: #f9f9f9;
   }
   
-  .ability-table tr:hover {
+  .feat-table tr:hover {
     background-color: #ddd;
   }
   
-  .ability-table th,
-  .ability-table td {
+  .feat-table th,
+  .feat-table td {
     text-align: center;
   }
   
-  .ability-table button {
+  .feat-table button {
     padding: 5px 10px;
     margin: 2px;
     border: none;
@@ -71,6 +71,6 @@
     border-radius: 4px;
   }
   
-  .ability-table button:hover {
+  .feat-table button:hover {
     background-color: #ddd;
   }  

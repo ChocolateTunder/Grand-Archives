@@ -14,16 +14,16 @@ const AbilityList = ({ onDelete, abilities  }) => {
         }
     };
 
-    const sortedAbilities = abilities.sort((a, b) => {
-        const aValue = sortBy === "action_cost" ? a[sortBy] : a[sortBy].toLowerCase();
-        const bValue = sortBy === "action_cost" ? b[sortBy] : b[sortBy].toLowerCase();
+    // const sortedAbilities = abilities.sort((a, b) => {
+    //     const aValue = sortBy === "action_cost" ? a[sortBy] : a[sortBy].toLowerCase();
+    //     const bValue = sortBy === "action_cost" ? b[sortBy] : b[sortBy].toLowerCase();
 
-        if (sortBy === "action_cost") {
-            return sortOrder === "asc" ? aValue - bValue : bValue - aValue;
-        } else {
-            return sortOrder === "asc" ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
-        }
-    });
+    //     if (sortBy === "action_cost") {
+    //         return sortOrder === "asc" ? aValue - bValue : bValue - aValue;
+    //     } else {
+    //         return sortOrder === "asc" ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+    //     }
+    // });
 
   return (
     <table className="ability-table">

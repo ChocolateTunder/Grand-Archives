@@ -1,83 +1,62 @@
 import React, { useState } from "react";
-import './AddAbility.css';
+import './AddTrait.css';
 
-const AddAbility = ({ onNewAbility }) => {
-    const [abilityData, setAbilityData] = useState({
-        ability_name: "",
+const AddTrait = ({ onNewTrait }) => {
+    const [traitData, setTraitData] = useState({
+        trait_name: "",
         description: "",
         tags: "",
         attribute: "",
         character_choice: "",
-        trait: "",
-        damage: "",
-        damage_type: "",
-        range: "",
-        duration: "",
-        action_type: "",
-        action_cost: 0,
-        ability_id: ""
+        trait_id: ""
     });
 
     /*
-        TODO check ability name to see if it'll make unique id    
+        TODO check trait name to see if it'll make unique id    
     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const updatedAbilityData = {
-            ability_name: formData.get("ability_name"),
+        const updatedTraitData = {
+            trait_name: formData.get("trait_name"),
             description: formData.get("description"),
             tags: formData.get("tags").split(',').map(tag => tag.trim()),
             attribute: formData.get("attribute").split(',').map(attr => attr.trim()),
             character_choice: formData.get("character_choice").split(',').map(choice => choice.trim()),
-            trait: formData.get("trait").split(',').map(trait => trait.trim()),
-            damage: formData.get("damage"),
-            damage_type: formData.get("damage_type"),
-            range: formData.get("range"),
-            duration: formData.get("duration"),
-            action_type: formData.get("action_type"),
-            action_cost: parseInt(formData.get("action_cost"), 10),
-            ability_id: formData.get("ability_name")?.toString().toLowerCase().replace(/\s/g, '')
+            trait_id: formData.get("trait_name")?.toString().toLowerCase().replace(/\s/g, '')
         };
-        setAbilityData(updatedAbilityData);
-        //console.log(JSON.stringify(updatedAbilityData));
+        setTraitData(updatedTraitData);
+        //console.log(JSON.stringify(updatedTraitData));
         
         try {
-            const response = await fetch("http://localhost:5000/api/ability", {
+            const response = await fetch("http://localhost:5000/api/trait", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-            body: JSON.stringify(updatedAbilityData)});
+            body: JSON.stringify(updatedTraitData)});
 
             if (response.ok) {
-                // Ability created successfully, perform any necessary actions (e.g., display a success message)
-                onNewAbility();
+                // Trait created successfully, perform any necessary actions (e.g., display a success message)
+                onNewTrait();
             } else {
-                // Ability creation failed, handle error (e.g., display an error message)
+                // Trait creation failed, handle error (e.g., display an error message)
             }
             } catch (error) {
-                console.error("Error creating ability:", error);
+                console.error("Error creating trait:", error);
                 // Handle error (e.g., display an error message)
             }
     };
 
     return (
         <div>
-            <form id="abilityForm" className="form" onSubmit={handleSubmit}>
+            <form id="traitForm" className="form" onSubmit={handleSubmit}>
                 <div className="rowNbutton">
                     <div className="input-row">
-                        <input type="text" placeholder="Ability Name" name="ability_name" required />
+                        <input type="text" placeholder="Trait Name" name="trait_name" required />
                         <input type="text" placeholder="Tags" name="tags" required />
                         <input type="text" placeholder="Attribute Requirement" name="attribute" required />
                         <input type="text" placeholder="Discipline/Affinity/Calling" name="character_choice" required />
-                        <input type="text" placeholder="Trait Requirement" name="trait" required />
-                        <input type="text" placeholder="Damage" name="damage" required />
-                        <input type="text" placeholder="Damage Type" name="damage_type" required />
-                        <input type="text" placeholder="Range/AoE" name="range" required />
-                        <input type="text" placeholder="Duration" name="duration" required />
-                        <input type="text" placeholder="Type of Action" name="action_type" required />
-                        <input type="number" placeholder="Action Point Cost" name="action_cost" required />
                     </div>
                     <button className="button" type="submit">Submit</button>
                 </div>
@@ -87,4 +66,4 @@ const AddAbility = ({ onNewAbility }) => {
     );
 };
 
-export default AddAbility;
+export default AddTrait;

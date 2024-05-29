@@ -44,12 +44,12 @@
     transition-duration: 0.4s;
 }
 
-#abilityForm:valid .button{
+#featForm:valid .button{
     background-color: green;
     cursor:pointer;
 }
 
-#abilityForm:valid .button:hover {
+#featForm:valid .button:hover {
     background-color: #1ca573; /* Green */
     color: white;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);

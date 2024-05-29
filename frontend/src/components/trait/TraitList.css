@@ -32,38 +32,38 @@
 } */
 /* AbilityList.css */
 
-.ability-table {
+.trait-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
   }
   
-  .ability-table th,
-  .ability-table td {
+  .trait-table th,
+  .trait-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
   }
   
-  .ability-table th {
+  .trait-table th {
     background-color: #f2f2f2;
     font-weight: bold;
   }
   
-  .ability-table tr:nth-child(even) {
+  .trait-table tr:nth-child(even) {
     background-color: #f9f9f9;
   }
   
-  .ability-table tr:hover {
+  .trait-table tr:hover {
     background-color: #ddd;
   }
   
-  .ability-table th,
-  .ability-table td {
+  .trait-table th,
+  .trait-table td {
     text-align: center;
   }
   
-  .ability-table button {
+  .trait-table button {
     padding: 5px 10px;
     margin: 2px;
     border: none;
@@ -71,6 +71,6 @@
     border-radius: 4px;
   }
   
-  .ability-table button:hover {
+  .trait-table button:hover {
     background-color: #ddd;
   }  

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import './AddAbility.css';
+import './AddPower.css';
 
-const AddAbility = ({ onNewAbility }) => {
-    const [abilityData, setAbilityData] = useState({
-        ability_name: "",
+const AddPower = ({ onNewPower }) => {
+    const [powerData, setPowerData] = useState({
+        power_name: "",
         description: "",
         tags: "",
         attribute: "",
@@ -15,17 +15,17 @@ const AddAbility = ({ onNewAbility }) => {
         duration: "",
         action_type: "",
         action_cost: 0,
-        ability_id: ""
+        power_id: ""
     });
 
     /*
-        TODO check ability name to see if it'll make unique id    
+        TODO check power name to see if it'll make unique id    
     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const updatedAbilityData = {
-            ability_name: formData.get("ability_name"),
+        const updatedPowerData = {
+            power_name: formData.get("power_name"),
             description: formData.get("description"),
             tags: formData.get("tags").split(',').map(tag => tag.trim()),
             attribute: formData.get("attribute").split(',').map(attr => attr.trim()),
@@ -37,37 +37,36 @@ const AddAbility = ({ onNewAbility }) => {
             duration: formData.get("duration"),
             action_type: formData.get("action_type"),
             action_cost: parseInt(formData.get("action_cost"), 10),
-            ability_id: formData.get("ability_name")?.toString().toLowerCase().replace(/\s/g, '')
+            power_id: formData.get("power_name")?.toString().toLowerCase().replace(/\s/g, '')
         };
-        setAbilityData(updatedAbilityData);
-        //console.log(JSON.stringify(updatedAbilityData));
+        setPowerData(updatedPowerData);
         
         try {
-            const response = await fetch("http://localhost:5000/api/ability", {
+            const response = await fetch("http://localhost:5000/api/power", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-            body: JSON.stringify(updatedAbilityData)});
+            body: JSON.stringify(updatedPowerData)});
 
             if (response.ok) {
-                // Ability created successfully, perform any necessary actions (e.g., display a success message)
-                onNewAbility();
+                // Power created successfully, perform any necessary actions (e.g., display a success message)
+                onNewPower();
             } else {
-                // Ability creation failed, handle error (e.g., display an error message)
+                // Power creation failed, handle error (e.g., display an error message)
             }
             } catch (error) {
-                console.error("Error creating ability:", error);
+                console.error("Error creating power:", error);
                 // Handle error (e.g., display an error message)
             }
     };
 
     return (
         <div>
-            <form id="abilityForm" className="form" onSubmit={handleSubmit}>
+            <form id="powerForm" className="form" onSubmit={handleSubmit}>
                 <div className="rowNbutton">
                     <div className="input-row">
-                        <input type="text" placeholder="Ability Name" name="ability_name" required />
+                        <input type="text" placeholder="Power Name" name="power_name" required />
                         <input type="text" placeholder="Tags" name="tags" required />
                         <input type="text" placeholder="Attribute Requirement" name="attribute" required />
                         <input type="text" placeholder="Discipline/Affinity/Calling" name="character_choice" required />
@@ -87,4 +86,4 @@ const AddAbility = ({ onNewAbility }) => {
     );
 };
 
-export default AddAbility;
+export default AddPower;

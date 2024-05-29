@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import './AbilityList.css'; // Ensure this path is correct
+import './MasteryList.css'; // Ensure this path is correct
 
-const AbilityList = ({ onDelete, abilities  }) => {
-    const [sortBy, setSortBy] = useState<string>("ability_name");
+const MasteryList = ({ onDelete, masteries  }) => {
+    const [sortBy, setSortBy] = useState<string>("mastery_name");
     const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
     const handleSort = (column: string) => {
@@ -14,22 +14,11 @@ const AbilityList = ({ onDelete, abilities  }) => {
         }
     };
 
-    const sortedAbilities = abilities.sort((a, b) => {
-        const aValue = sortBy === "action_cost" ? a[sortBy] : a[sortBy].toLowerCase();
-        const bValue = sortBy === "action_cost" ? b[sortBy] : b[sortBy].toLowerCase();
-
-        if (sortBy === "action_cost") {
-            return sortOrder === "asc" ? aValue - bValue : bValue - aValue;
-        } else {
-            return sortOrder === "asc" ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
-        }
-    });
-
   return (
-    <table className="ability-table">
+    <table className="mastery-table">
       <thead>
         <tr>
-        <th onClick={() => handleSort("ability_name")}>Name</th>
+        <th onClick={() => handleSort("mastery_name")}>Name</th>
         <th >Description</th>
         <th >Tags</th>
         <th >Attribute</th>
@@ -44,23 +33,17 @@ const AbilityList = ({ onDelete, abilities  }) => {
         </tr>
       </thead>
       <tbody>
-        {abilities.map((ability) => (
-          <tr key={ability.ability_id}>
-            <td>{ability.ability_name}</td>
-            <td>{ability.description}</td>
-            <td>{ability.tags.join(", ")}</td>
-            <td>{ability.attribute.join(", ")}</td>
-            <td>{ability.character_choice.join(", ")}</td>
-            <td>{ability.trait.join(", ")}</td>
-            <td>{ability.damage}</td>
-            <td>{ability.damage_type}</td>
-            <td>{ability.range}</td>
-            <td>{ability.duration}</td>
-            <td>{ability.action_type}</td>
-            <td>{ability.action_cost}</td>
+        {masteries.map((mastery) => (
+          <tr key={mastery.mastery_id}>
+            <td>{mastery.mastery_name}</td>
+            <td>{mastery.description}</td>
+            <td>{mastery.tags.join(", ")}</td>
+            <td>{mastery.attribute.join(", ")}</td>
+            <td>{mastery.character_choice.join(", ")}</td>
+            <td>{mastery.trait.join(", ")}</td>
             <td>
-              {/* <button onClick={() => onEdit(ability)}>Edit</button> */}
-              <button onClick={() => onDelete(ability.ability_id)}>Delete</button>
+              {/* <button onClick={() => onEdit(mastery)}>Edit</button> */}
+              <button onClick={() => onDelete(mastery.mastery_id)}>Delete</button>
             </td>
           </tr>
         ))}
@@ -69,4 +52,4 @@ const AbilityList = ({ onDelete, abilities  }) => {
   );
 };
 
-export default AbilityList;
+export default MasteryList;
