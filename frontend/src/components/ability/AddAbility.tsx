@@ -18,6 +18,9 @@ const AddAbility = ({ onNewAbility }) => {
         ability_id: ""
     });
 
+    /*
+        TODO check ability name to see if it'll make unique id    
+    */
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -37,7 +40,7 @@ const AddAbility = ({ onNewAbility }) => {
             ability_id: formData.get("ability_name")?.toString().toLowerCase().replace(/\s/g, '')
         };
         setAbilityData(updatedAbilityData);
-        console.log(JSON.stringify(updatedAbilityData));
+        //console.log(JSON.stringify(updatedAbilityData));
         
         try {
             const response = await fetch("http://localhost:5000/api/ability", {
