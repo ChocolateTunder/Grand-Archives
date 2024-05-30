@@ -8,7 +8,7 @@ router.post("/api/mastery", async(req, res) => {
  
     try {
        const newMastery = await db.query(
-          "INSERT INTO masterys (mastery_id, mastery_name, description, attribute, character_choice, trait) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+          "INSERT INTO masteries (mastery_id, mastery_name, description, attribute, character_choice, trait) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
           [mastery_id, mastery_name, description, attribute, character_choice, trait]);
           res.json(newMastery.rows[0]);
     } catch (error) {
@@ -17,11 +17,11 @@ router.post("/api/mastery", async(req, res) => {
     }
  })
  
- //Get all masterys
+ //Get all masteries
  router.get("/api/mastery/all", async(req, res) => {
     try {
        const allMasterys = await db.query(
-          "SELECT * FROM masterys"
+          "SELECT * FROM masteries"
        );
        res.json(allMasterys.rows);
     } catch (error) {
@@ -34,7 +34,7 @@ router.post("/api/mastery", async(req, res) => {
  router.get("/api/mastery", async(req, res) =>{
     try {
        const {mastery_name} = req.body;
-       const mastery = await db.query("SELECT * FROM masterys WHERE mastery_name = $1", [mastery_name])
+       const mastery = await db.query("SELECT * FROM masteries WHERE mastery_name = $1", [mastery_name])
        res.json(mastery.rows[0]);
     } catch (error) {
        console.error('Error executing query', error);
@@ -42,11 +42,11 @@ router.post("/api/mastery", async(req, res) => {
     }
  })
  
- //Search masterys //TODO ADD MODULARITY FOR SEARCHING FOR POWERS/FEATS TOO SINCE THIS WILL FUNCTION FOR ALL
+ //Search masteries //TODO ADD MODULARITY FOR SEARCHING FOR POWERS/FEATS TOO SINCE THIS WILL FUNCTION FOR ALL
  router.get("/api/mastery/search", async(req, res) =>{   
     const {mastery_id, mastery_name, description, attribute, character_choice, trait} = req.body;
     let parameters = [mastery_id, mastery_name, description, attribute, character_choice, trait];
-    let query = 'SELECT * FROM masterys WHERE ';
+    let query = 'SELECT * FROM masteries WHERE ';
  
     //Filer out all empty strings, 0, false and undefined in array
     parameters = parameters.filter(e => e);
@@ -85,7 +85,7 @@ router.post("/api/mastery", async(req, res) => {
  router.put('/api/mastery', async (req, res) => {
     const {mastery_name, description, attribute, character_choice, trait} = req.body;
     const values = [mastery_name, description, attribute, character_choice, trait];
-    const query = `UPDATE masterys SET mastery_name = $1, description = $2, attribute = $3, character_choice = $4, trait = $5WHERE mastery_id = $13 RETURNING *;`; 
+    const query = `UPDATE masteries SET mastery_name = $1, description = $2, attribute = $3, character_choice = $4, trait = $5WHERE mastery_id = $13 RETURNING *;`; 
     
     try {
       const updateMastery = await db.query(query, values);
@@ -100,7 +100,7 @@ router.post("/api/mastery", async(req, res) => {
  router.delete("/api/mastery", async(req, res) =>{
     try {
        const {mastery_id} = req.body;
-       const result = await db.query("DELETE FROM masterys WHERE mastery_id = $1 RETURNING *", [mastery_id])
+       const result = await db.query("DELETE FROM masteries WHERE mastery_id = $1 RETURNING *", [mastery_id])
        res.json(result.rows[0]);
     } catch (error) {
        console.error('Error executing query', error);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './AddFeat.css';
+import '../style.css';
 
 const AddFeat = ({ onNewFeat }) => {
     const [featData, setFeatData] = useState({
@@ -50,7 +50,7 @@ const AddFeat = ({ onNewFeat }) => {
 
     return (
         <div>
-            <form id="featForm" className="form" onSubmit={handleSubmit}>
+            <form id="addForm" className="form" onSubmit={handleSubmit}>
                 <div className="rowNbutton">
                     <div className="input-row">
                         <input type="text" placeholder="Feat Name" name="feat_name" required />

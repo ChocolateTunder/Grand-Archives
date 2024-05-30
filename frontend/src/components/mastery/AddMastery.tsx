@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './AddMastery.css';
+import '../style.css';
 
 const AddMastery = ({ onNewMastery }) => {
     const [masteryData, setMasteryData] = useState({
@@ -50,7 +50,7 @@ const AddMastery = ({ onNewMastery }) => {
 
     return (
         <div>
-            <form id="masteryForm" className="form" onSubmit={handleSubmit}>
+            <form id="addForm" className="form" onSubmit={handleSubmit}>
                 <div className="rowNbutton">
                     <div className="input-row">
                         <input type="text" placeholder="Mastery Name" name="mastery_name" required />

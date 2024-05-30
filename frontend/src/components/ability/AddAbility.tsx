@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './AddAbility.css';
+import '../style.css';
 
 const AddAbility = ({ onNewAbility }) => {
     const [abilityData, setAbilityData] = useState({
@@ -64,7 +64,7 @@ const AddAbility = ({ onNewAbility }) => {
 
     return (
         <div>
-            <form id="abilityForm" className="form" onSubmit={handleSubmit}>
+            <form id="addForm" className="form" onSubmit={handleSubmit}>
                 <div className="rowNbutton">
                     <div className="input-row">
                         <input type="text" placeholder="Ability Name" name="ability_name" required autoComplete="off" />

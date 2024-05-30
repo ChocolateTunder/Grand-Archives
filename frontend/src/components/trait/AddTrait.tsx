@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './AddTrait.css';
+import '../style.css';
 
 const AddTrait = ({ onNewTrait }) => {
     const [traitData, setTraitData] = useState({
@@ -50,7 +50,7 @@ const AddTrait = ({ onNewTrait }) => {
 
     return (
         <div>
-            <form id="traitForm" className="form" onSubmit={handleSubmit}>
+            <form id="addForm" className="form" onSubmit={handleSubmit}>
                 <div className="rowNbutton">
                     <div className="input-row">
                         <input type="text" placeholder="Trait Name" name="trait_name" required />

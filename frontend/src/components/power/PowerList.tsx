@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './PowerList.css'; // Ensure this path is correct
+import '../style.css';
 
 const PowerList = ({ onDelete, powers  }) => {
     const [sortBy, setSortBy] = useState<string>("power_name");
@@ -15,7 +15,7 @@ const PowerList = ({ onDelete, powers  }) => {
     };
 
   return (
-    <table className="power-table">
+    <table className="content-table">
       <thead>
         <tr>
         <th onClick={() => handleSort("power_name")}>Name</th>

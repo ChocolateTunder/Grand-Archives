@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './TraitList.css'; // Ensure this path is correct
+import '../style.css';
 
 const TraitList = ({ onDelete, traits  }) => {
     const [sortBy, setSortBy] = useState<string>("trait_name");
@@ -15,7 +15,7 @@ const TraitList = ({ onDelete, traits  }) => {
     };
 
   return (
-    <table className="trait-table">
+    <table className="content-table">
       <thead>
         <tr>
         <th onClick={() => handleSort("trait_name")}>Name</th>

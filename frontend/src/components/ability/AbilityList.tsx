@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './AbilityList.css'; // Ensure this path is correct
+import '../style.css'; // Ensure this path is correct
 
 const AbilityList = ({ onDelete, abilities  }) => {
     const [sortBy, setSortBy] = useState<string>("ability_name");
@@ -26,7 +26,7 @@ const AbilityList = ({ onDelete, abilities  }) => {
     // }); 
 
   return (
-    <table className="ability-table">
+    <table className="content-table">
       <thead>
         <tr>
         <th onClick={() => handleSort("ability_name")}>Name</th>

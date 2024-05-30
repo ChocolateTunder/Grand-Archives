@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './AddPower.css';
+import '../style.css';
 
 const AddPower = ({ onNewPower }) => {
     const [powerData, setPowerData] = useState({
@@ -65,7 +65,7 @@ const AddPower = ({ onNewPower }) => {
 
     return (
         <div>
-            <form id="powerForm" className="form" onSubmit={handleSubmit}>
+            <form id="addForm" className="form" onSubmit={handleSubmit}>
                 <div className="rowNbutton">
                     <div className="input-row">
                         <input type="text" placeholder="Power Name" name="power_name" required />
