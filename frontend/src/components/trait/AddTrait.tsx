@@ -54,9 +54,9 @@ const AddTrait = ({ onNewTrait }) => {
                 <div className="rowNbutton">
                     <div className="input-row">
                         <input type="text" placeholder="Trait Name" name="trait_name" required />
-                        <input type="text" placeholder="Ancestries" name="Ancestries" required />
+                        <input type="text" placeholder="Ancestries" name="ancestry" required />
                         <input type="text" placeholder="Discipline/Affinity/Calling" name="character_choice" required />
-                        <input type="text" placeholder="Story" name="Story" required />
+                        <input type="text" placeholder="Story" name="story" required />
                     </div>
                     <button className="button" type="submit">Submit</button>
                 </div>

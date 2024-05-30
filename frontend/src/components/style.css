@@ -90,6 +90,7 @@
 #addForm:valid .button{
     background-color: green;
     cursor:pointer;
+    color: white;
 }
 
 #addForm:valid .button:hover {
